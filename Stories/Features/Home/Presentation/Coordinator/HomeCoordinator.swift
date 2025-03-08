@@ -16,5 +16,7 @@ final class HomeCoordinator: Coordinator {
     }
     
     func start() {
+        let view = HomeView()
+        router.setRoot(view)
     }
 }
