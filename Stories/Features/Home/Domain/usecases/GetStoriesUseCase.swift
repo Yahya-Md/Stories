@@ -7,12 +7,18 @@
 import Combine
 
 protocol GetStoriesUseCase {
-    func execute(currentPage: Int) -> AnyPublisher<[Story], Never>
+    func execute(currentPage: Int) -> AnyPublisher<[Story], Error>
 }
 
 class GetStoriesUseCaseImpl: GetStoriesUseCase {
-    func execute(currentPage: Int) -> AnyPublisher<[Story], Never> {
-        return Just([Story]())
-            .eraseToAnyPublisher()
+    
+    private let repository: GetStoriesRepository
+    
+    init(repository: GetStoriesRepository) {
+        self.repository = repository
+    }
+    
+    func execute(currentPage: Int) -> AnyPublisher<[Story], Error> {
+        return repository.getStoriesRepository(currentPage: currentPage).eraseToAnyPublisher()
     }
 }
