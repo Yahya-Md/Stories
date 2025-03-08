@@ -8,7 +8,7 @@ import Combine
 
 final class StoriesViewModel: LoadableObject {
     
-    var state: LoadingState<[Stories]> = .idle
+    @Published private(set) var state = LoadingState<[Stories]>.idle
     var canLoadMore: Bool = false
     var isLoadingMore: Bool = false
     private var totalPages = 0

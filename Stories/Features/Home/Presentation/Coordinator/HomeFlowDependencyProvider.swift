@@ -6,11 +6,12 @@
 //
 
 protocol HomeFlowDependencyProvider: AnyObject {
-    func makeCategoriesViewModel()
+    func makeStoriesViewModel() -> GetStoriesUseCase
 }
 
 extension DependencyContainer: HomeFlowDependencyProvider {
-    func makeCategoriesViewModel() {
-        
+    func makeStoriesViewModel() -> GetStoriesUseCase {
+        let repository = StoriesRepositoryImpl(loader: appLoader)
+        return GetStoriesUseCaseImpl(repository: repository)
     }
 }

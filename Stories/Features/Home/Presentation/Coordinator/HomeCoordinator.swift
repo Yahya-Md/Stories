@@ -16,7 +16,14 @@ final class HomeCoordinator: Coordinator {
     }
     
     func start() {
-        let view = HomeView()
+        let viewModel = makeStoriesViewModel()
+        let view = HomeView(viewModel: viewModel)
         router.setRoot(view)
+    }
+}
+
+private extension HomeCoordinator {
+    func makeStoriesViewModel() -> StoriesViewModel {
+        StoriesViewModel(useCase: dependencyContainer.makeStoriesViewModel())
     }
 }
