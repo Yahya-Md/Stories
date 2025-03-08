@@ -5,7 +5,7 @@
     {
       "userId": "1",
       "username": "john_doe",
-      "profilePicture": "https://example.com/profiles/john_doe.jpg",
+      "profilePicture": "https://i.pravatar.cc/300?u=1",
       "stories": [
         {
           "storyId": "101",
@@ -26,7 +26,35 @@
     {
       "userId": "2",
       "username": "emma_watson",
-      "profilePicture": "https://example.com/profiles/emma_watson.jpg",
+      "profilePicture": "https://i.pravatar.cc/300?u=2",
+      "stories": [
+        {
+          "storyId": "201",
+          "type": "image",
+          "url": "https://example.com/stories/story_201.jpg",
+          "duration": 5000,
+          "timestamp": "2025-03-08T13:00:00Z"
+        }
+      ]
+    },
+    {
+      "userId": "3",
+      "username": "emma_watson",
+      "profilePicture": "https://i.pravatar.cc/300?u=3",
+      "stories": [
+        {
+          "storyId": "201",
+          "type": "image",
+          "url": "https://example.com/stories/story_201.jpg",
+          "duration": 5000,
+          "timestamp": "2025-03-08T13:00:00Z"
+        }
+      ]
+    },
+    {
+      "userId": "3",
+      "username": "emma_watson",
+      "profilePicture": "https://i.pravatar.cc/300?u=3",
       "stories": [
         {
           "storyId": "201",

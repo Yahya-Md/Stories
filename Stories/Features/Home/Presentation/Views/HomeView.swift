@@ -8,24 +8,25 @@
 import SwiftUI
 
 struct HomeView: View {
+    @StateObject var viewModel: StoriesViewModel
+    
+    init(
+        viewModel: @autoclosure @escaping () -> StoriesViewModel
+    ) {
+        _viewModel = StateObject(wrappedValue: viewModel())
+    }
     var body: some View {
         ZStack {
             VStack {
-                
-                    ScrollView(.horizontal) {
-                        HStack {
-                        AddStoryButton { }
-                            StoryBubbleView(imageURL: "", isSeen: true) {}
-                    }
-                }
+                StorieslistView(viewModel: viewModel)
                 Spacer()
+                
             }
-            .padding()
         }
     }
-
+    
 }
 
 #Preview {
-    HomeView()
+    //    HomeView()
 }

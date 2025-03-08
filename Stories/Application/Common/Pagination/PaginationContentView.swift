@@ -39,11 +39,9 @@ struct PaginationContentView<Source: LoadableObject, Content: View>: View {
     
     private var paginationTriggerView: some View {
         Color.clear
-            .frame(height: 1)
+            .frame(height: 10)
             .onAppear {
-                if !source.isLoadingMore {
-                    source.loadMore()
-                }
+                source.loadMore()
             }
     }
     

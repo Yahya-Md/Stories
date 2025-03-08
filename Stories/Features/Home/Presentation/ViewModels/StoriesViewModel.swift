@@ -8,12 +8,12 @@ import Combine
 
 final class StoriesViewModel: LoadableObject {
     
-    @Published private(set) var state = LoadingState<[Stories]>.idle
-    var canLoadMore: Bool = false
+    @Published private(set) var state = LoadingState<[UserStory]>.idle
+    var canLoadMore: Bool = true
     var isLoadingMore: Bool = false
     private var totalPages = 0
-    private var currentPage = 0
-    private var totalStories = [Stories]()
+    private var currentPage = 1
+    private var totalStories = [UserStory]()
     private var cancelables = Set<AnyCancellable>()
     private let useCase: GetStoriesUseCase
     
@@ -29,7 +29,7 @@ final class StoriesViewModel: LoadableObject {
         } receiveValue: { [weak self] result in
             guard let self else { return }
             totalPages = result.totalPages
-            totalStories = [result]
+            totalStories = result.stories
             state = .loaded(totalStories)
         }
         .store(in: &cancelables)
@@ -37,7 +37,6 @@ final class StoriesViewModel: LoadableObject {
     }
     
     func loadMore() {
-        canLoadMore = currentPage < totalPages
         guard !isLoadingMore && canLoadMore else { return }
         isLoadingMore = true
         useCase.execute(currentPage: currentPage + 1).sink { [weak self] completion in
@@ -60,8 +59,10 @@ final class StoriesViewModel: LoadableObject {
     }
     
     private func handleReceiveValue(_ result: Stories) {
+        isLoadingMore = false
+        canLoadMore = true
         totalPages = result.totalPages
-        totalStories.append(result)
+        totalStories.append(contentsOf: result.stories)
         state = .loaded(totalStories)
     }
 }
