@@ -4,20 +4,8 @@
 //
 //  Created by Yahya on 8/3/2025.
 //
+import UIKit
 import SwiftUI
-
-protocol Router {
-    func redirect<T: View>(
-        to view: T,
-        animated: Bool
-    )
-    
-    func setRoot<T: View>(
-        _ view: T,
-        completion: (() -> ())?
-    )
-    
-}
 
 final class NavigationRouter {
     
@@ -43,7 +31,7 @@ extension NavigationRouter: Router {
 
 // MARK: - Helpers
 private extension NavigationRouter {
-    private func setRoot(_ viewController: UIViewController, completion: (() -> ())?) {
+    func setRoot(_ viewController: UIViewController, completion: (() -> ())?) {
         if !navigationController.viewControllers.isEmpty {
             navigationController.pushViewController(viewController, animated: true)
         } else {
