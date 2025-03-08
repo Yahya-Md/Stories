@@ -1,0 +1,41 @@
+{
+  "currentPage": 1,
+  "totalPages": 5,
+  "stories": [
+    {
+      "userId": "1",
+      "username": "john_doe",
+      "profilePicture": "https://example.com/profiles/john_doe.jpg",
+      "stories": [
+        {
+          "storyId": "101",
+          "type": "image",
+          "url": "https://example.com/stories/story_101.jpg",
+          "duration": 5000,
+          "timestamp": "2025-03-08T12:00:00Z"
+        },
+        {
+          "storyId": "101",
+          "type": "image",
+          "url": "https://example.com/stories/story_101.jpg",
+          "duration": 5000,
+          "timestamp": "2025-03-08T12:00:00Z"
+        }
+      ]
+    },
+    {
+      "userId": "2",
+      "username": "emma_watson",
+      "profilePicture": "https://example.com/profiles/emma_watson.jpg",
+      "stories": [
+        {
+          "storyId": "201",
+          "type": "image",
+          "url": "https://example.com/stories/story_201.jpg",
+          "duration": 5000,
+          "timestamp": "2025-03-08T13:00:00Z"
+        }
+      ]
+    }
+  ]
+}
