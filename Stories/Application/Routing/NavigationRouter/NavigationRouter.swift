@@ -11,6 +11,12 @@ protocol Router {
         to view: T,
         animated: Bool
     )
+    
+    func setRoot<T: View>(
+        _ view: T,
+        completion: (() -> ())?
+    )
+    
 }
 
 final class NavigationRouter {
@@ -20,5 +26,28 @@ final class NavigationRouter {
     init(navigationController: UINavigationController = UINavigationController()) {
         self.navigationController = navigationController
         self.navigationController.isNavigationBarHidden = true
+    }
+}
+
+extension NavigationRouter: Router {
+    func redirect<T>(to view: T, animated: Bool) where T : View {
+        let vc = view.viewController
+        navigationController.pushViewController(vc, animated: animated)
+    }
+    
+    func setRoot<T>(_ view: T, completion: (() -> ())?) where T : View {
+        let vc = view.viewController
+        setRoot(vc, completion: completion)
+    }
+}
+
+// MARK: - Helpers
+private extension NavigationRouter {
+    private func setRoot(_ viewController: UIViewController, completion: (() -> ())?) {
+        if !navigationController.viewControllers.isEmpty {
+            navigationController.pushViewController(viewController, animated: true)
+        } else {
+            navigationController.setViewControllers([viewController], animated: false)
+        }
     }
 }
