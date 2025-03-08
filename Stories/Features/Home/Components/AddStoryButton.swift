@@ -21,7 +21,7 @@ struct AddStoryButton: View {
 }
 
 private extension AddStoryButton {
-    @ViewBuilder
+    
     var storyButtonLabel: some View {
         Text("YM")
             .multilineTextAlignment(.center)
@@ -37,7 +37,6 @@ private extension AddStoryButton {
             }
     }
     
-    @ViewBuilder
     var plusImage: some View {
         Image(systemName: "plus")
             .background(
