@@ -6,4 +6,8 @@
 //
 class PreviewsData {
     private init() {}
+    
+    static func makeImageUrl() -> String {
+        "https://i.pravatar.cc/300?u=1"
+    }
 }

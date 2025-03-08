@@ -34,5 +34,5 @@ struct CircularImageView: View {
 }
 
 #Preview {
-    CircularImageView(imageURL: "https://i.pravatar.cc/300?u=1")
+    CircularImageView(imageURL: PreviewsData.makeImageUrl())
 }

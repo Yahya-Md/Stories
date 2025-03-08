@@ -36,7 +36,7 @@ private extension StoryBubbleView {
 }
 
 #Preview {
-    let storyImage = "https://i.pravatar.cc/300?u=1"
+    let storyImage = PreviewsData.makeImageUrl()
     HStack {
         StoryBubbleView(imageURL: storyImage) {}
         StoryBubbleView(imageURL: storyImage, isSeen: true) {}
