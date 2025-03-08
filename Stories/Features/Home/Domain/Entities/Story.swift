@@ -5,16 +5,20 @@
 //  Created by Yahya on 8/3/2025.
 //
 
-typealias Stories = [Story]
-
 class Story: Identifiable {
-    let id: Int
-    let user: User
+    let storyId: String
+    let type: String
+    let url: String
+    let duration: Int
+    let timestamp: String
     var isSeen: Bool
     
-    init(id: Int, user: User, isSeen: Bool) {
-        self.id = id
-        self.user = user
+    init(storyId: String, type: String, url: String, duration: Int, timestamp: String, isSeen: Bool) {
+        self.storyId = storyId
+        self.type = type
+        self.url = url
+        self.duration = duration
+        self.timestamp = timestamp
         self.isSeen = isSeen
     }
     

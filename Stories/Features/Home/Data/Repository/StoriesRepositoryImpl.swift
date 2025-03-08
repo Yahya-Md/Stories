@@ -19,7 +19,7 @@ class StoriesRepositoryImpl: GetStoriesRepository {
         let fileName: String = ""
         return loader.load(with: fileName)
             .map{ (result: StoriesModel) in
-                result.map { $0.toDomain() }
+                result.toDomain()
             }
             .eraseToAnyPublisher()
     }

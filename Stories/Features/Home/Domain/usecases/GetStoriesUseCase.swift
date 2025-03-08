@@ -7,7 +7,7 @@
 import Combine
 
 protocol GetStoriesUseCase {
-    func execute(currentPage: Int) -> AnyPublisher<[Story], Error>
+    func execute(currentPage: Int) -> AnyPublisher<Stories, Error>
 }
 
 class GetStoriesUseCaseImpl: GetStoriesUseCase {
@@ -18,7 +18,7 @@ class GetStoriesUseCaseImpl: GetStoriesUseCase {
         self.repository = repository
     }
     
-    func execute(currentPage: Int) -> AnyPublisher<[Story], Error> {
+    func execute(currentPage: Int) -> AnyPublisher<Stories, Error> {
         return repository.getStoriesRepository(currentPage: currentPage)
             .eraseToAnyPublisher()
     }
