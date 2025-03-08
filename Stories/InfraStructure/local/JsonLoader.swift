@@ -7,5 +7,5 @@
 import Combine
 
 protocol JsonLoader {
-    func load<T: Decodable>(filename: String) -> AnyPublisher<T, Error>
+    func load<T: Decodable>(with filename: String) -> AnyPublisher<T, Error>
 }

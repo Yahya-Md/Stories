@@ -5,6 +5,8 @@
 //  Created by Yahya on 8/3/2025.
 //
 
+typealias Stories = [Story]
+
 class Story: Identifiable {
     let id: Int
     let user: User
