@@ -8,5 +8,5 @@
 import Combine
 
 protocol GetStoriesRepository {
-    func getStoriesRepository(currentPage: Int) -> AnyPublisher<[Story], Error>
+    func getStoriesRepository(currentPage: Int) -> AnyPublisher<Stories, Error>
 }

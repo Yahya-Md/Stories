@@ -5,4 +5,11 @@
 //  Created by Yahya on 8/3/2025.
 //
 
-import Foundation
+typealias StoriesModel = [StoryModel]
+
+struct StoryModel: Decodable {
+    let id: Int
+    let user: UserModel
+    var isSeen: Bool
+    
+}

@@ -6,3 +6,9 @@
 //
 
 import Foundation
+
+extension StoryModel {
+    func toDomain() -> Story {
+        Story(id: id, user: user.toDomain(), isSeen: isSeen)
+    }
+}
