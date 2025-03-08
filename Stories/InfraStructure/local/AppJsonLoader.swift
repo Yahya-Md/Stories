@@ -9,7 +9,7 @@ import Foundation
 import Combine
 
 class AppJsonLoader: JsonLoader {
-    func load<T>(filename: String) -> AnyPublisher<T, any Error> where T : Decodable {
+    func load<T>(with filename: String) -> AnyPublisher<T, any Error> where T : Decodable {
         guard let url = Bundle.main.url(forResource: filename, withExtension: "json") else {
             return Fail(error: JsonErrorLoader.invalidFile(filename))
                 .eraseToAnyPublisher()

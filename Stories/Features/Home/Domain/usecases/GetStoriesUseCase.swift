@@ -19,6 +19,7 @@ class GetStoriesUseCaseImpl: GetStoriesUseCase {
     }
     
     func execute(currentPage: Int) -> AnyPublisher<[Story], Error> {
-        return repository.getStoriesRepository(currentPage: currentPage).eraseToAnyPublisher()
+        return repository.getStoriesRepository(currentPage: currentPage)
+            .eraseToAnyPublisher()
     }
 }
