@@ -11,8 +11,11 @@ struct HomeView: View {
     var body: some View {
         ZStack {
             VStack {
-                HStack {                    ScrollView(.horizontal) {
+                
+                    ScrollView(.horizontal) {
+                        HStack {
                         AddStoryButton { }
+                            StoryBubbleView(imageUrl: "https://i.pravatar.cc/300?u=1")
                     }
                 }
                 Spacer()

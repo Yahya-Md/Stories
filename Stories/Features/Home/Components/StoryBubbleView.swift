@@ -8,11 +8,33 @@
 import SwiftUI
 
 struct StoryBubbleView: View {
+    let imageUrl: String
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        if let url = URL(string: imageUrl) {
+            AsyncImage(url: url) { image in
+                image
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
+                    .clipShape(Circle())
+                    .frame(width: 50, height: 50)
+            } placeholder: {
+                placeHolderImage
+            }
+        } else {
+            placeHolderImage
+        }
+    }
+    
+    var placeHolderImage: some View {
+        Circle()
+        .fill(Color.blue)
+        .frame(width: 50, height: 50)
     }
 }
 
 #Preview {
-    StoryBubbleView()
+    HStack {
+        StoryBubbleView(imageUrl: "https://i.pravatar.cc/300?u=1")
+        StoryBubbleView(imageUrl: "")
+    }
 }
