@@ -15,7 +15,7 @@ struct HomeView: View {
                     ScrollView(.horizontal) {
                         HStack {
                         AddStoryButton { }
-                            StoryBubbleView(imageUrl: "https://i.pravatar.cc/300?u=1")
+                            StoryBubbleView(imageURL: "", isSeen: true) {}
                     }
                 }
                 Spacer()

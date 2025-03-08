@@ -1,5 +1,5 @@
 //
-//  StoryBubbleView.swift
+//  CircularImageView.swift
 //  Stories
 //
 //  Created by Yahya on 8/3/2025.
@@ -7,10 +7,11 @@
 
 import SwiftUI
 
-struct StoryBubbleView: View {
-    let imageUrl: String
+struct CircularImageView: View {
+    let imageURL: String
+    
     var body: some View {
-        if let url = URL(string: imageUrl) {
+        if let url = URL(string: imageURL) {
             AsyncImage(url: url) { image in
                 image
                     .resizable()
@@ -27,14 +28,11 @@ struct StoryBubbleView: View {
     
     var placeHolderImage: some View {
         Circle()
-        .fill(Color.blue)
-        .frame(width: 50, height: 50)
+            .fill(Color.blue)
+            .frame(width: 50, height: 50)
     }
 }
 
 #Preview {
-    HStack {
-        StoryBubbleView(imageUrl: "https://i.pravatar.cc/300?u=1")
-        StoryBubbleView(imageUrl: "")
-    }
+    CircularImageView(imageURL: "")
 }
